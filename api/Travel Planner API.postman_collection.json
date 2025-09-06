@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "3a32cff6-ad1d-4151-9363-010de811e44c",
+		"name": "Travel Planner API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "46189064",
+		"_collection_link": "https://pabloreyes-4384166.postman.co/workspace/Pablo-Reyes's-Workspace~d4c88192-b08b-4372-8847-4809cd35aa4b/collection/46189064-3a32cff6-ad1d-4151-9363-010de811e44c?action=share&source=collection_link&creator=46189064"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "CREATE User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "carlos",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "carlos@example.es",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/A:/Pablo/Downloads/6827455.jpg"
+								},
+								{
+									"key": "birthDate",
+									"value": "1985-11-05T10:49:54.444Z",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_API_URL}}/users"
+					},
+					"response": []
+				},
+				{
+					"name": "LIST Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"pepe\",\r\n    \"password\": \"123456\",\r\n    \"email\": \"paresa@example.com\",\r\n    \"birthDate\": \"935799899\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_API_URL}}/users"
+					},
+					"response": []
+				},
+				{
+					"name": "LIST User details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API_URL}}/users/:id",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68b747dd9baffdb2ef9956aa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/A:/Pablo/Downloads/6827455.jpg"
+								},
+								{
+									"key": "username",
+									"value": "nomar",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API_URL}}/users/:id",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68bbfbdcad3b8586a4a062f9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"birthDate\": \"935800000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API_URL}}/users/:id",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68bbf9c05f3268292054f78b"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "CREATE Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"paresa\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_API_URL}}/sessions"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Session",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BASE_API_URL}}/sessions"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Travels",
+			"item": [
+				{
+					"name": "CREATE Travel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Summer Euro Trip\",\r\n  \"origin\": \"Málaga\",\r\n  \"destinations\": [\"Rome\", \"Barcelona\"],\r\n  \"travelMethods\": [\"airplane\", \"train\"],\r\n  \"initialBudget\": 4000,\r\n  \"days\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_API_URL}}/travels"
+					},
+					"response": []
+				},
+				{
+					"name": "LIST Travels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_API_URL}}/users/me/travels"
+					},
+					"response": []
+				},
+				{
+					"name": "LIST Travel Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API_URL}}/users/me/travels/:id",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"travels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68b9d25c7ec4c819a823e11a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Travel",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Sierra Nevada Weekend\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API_URL}}/users/me/travels/:id",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"travels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68b9d25c7ec4c819a823e11a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Travel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Sierra Nevada Weekend\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API_URL}}/users/me/travels/:id",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"travels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68b9d25c7ec4c819a823e11a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Follows",
+			"item": [
+				{
+					"name": "CREATE Follow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API_URL}}/travels/:id/follows",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"travels",
+								":id",
+								"follows"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68b9e0b1a63047ace260dbcc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST Follows",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API_URL}}/travels/:id/follows",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"travels",
+								":id",
+								"follows"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68b9e0b1a63047ace260dbcc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Follow",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API_URL}}/travels/:id/follows/:followId",
+							"host": [
+								"{{BASE_API_URL}}"
+							],
+							"path": [
+								"travels",
+								":id",
+								"follows",
+								":followId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "68b9e0b1a63047ace260dbcc"
+								},
+								{
+									"key": "followId",
+									"value": "68b9e1323fe9e3396ef1a6be"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

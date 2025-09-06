@@ -26,7 +26,6 @@ module.exports.detail = async (req, res, next) => {
 
 module.exports.create = async (req, res, next) => {
   const { username } = req.body;
-
   let user = await User.findOne({ username });
   if (user) next(UsernameAlreadyExists);
   else {
@@ -35,7 +34,7 @@ module.exports.create = async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
       birthDate: req.body.birthDate,
-      avatar: `https://i.pravatar.cc/60?u=${req.body.username}`
+      avatar: req.file.path
     });
     res.status(201).json(user);
   }
