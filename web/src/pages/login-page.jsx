@@ -1,0 +1,20 @@
+import { PageLayout } from "../components/layouts";
+import { LoginForm } from "../components/auth";
+import { Link } from "react-router";
+
+function LoginPage() {
+  return(
+    <PageLayout>
+      <div className="row justify-content-center">
+        <div className="col-12 col-md-6 col-lg-4">
+          <h3 className="fw-light">Login</h3>
+          <LoginForm />
+          <hr className="my-2"/>
+          <Link to="/register" className="btn btn-secondary fw-light wd-100">Register</Link>
+        </div>
+      </div>
+    </PageLayout>
+  )
+};
+
+export default LoginPage;

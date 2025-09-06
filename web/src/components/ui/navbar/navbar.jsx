@@ -2,9 +2,9 @@ import { Link, NavLink } from "react-router"
 
 function Navbar() {
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <Link class="navbar-brand" to="/">Travel Planner</Link>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container">
+        <Link className="navbar-brand" to="/">Travel Planner</Link>
         <button 
           className="navbar-toggler" 
           type="button" 
