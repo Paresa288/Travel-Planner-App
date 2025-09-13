@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import * as UsersApi from "../../../services/users-api";
+import * as UsersApi from "../../../services/api-client";
 import { useAuth } from "../../../contexts/auth";
 import { useNavigate } from "react-router";
 
@@ -12,7 +12,7 @@ function LoginForm({ className="" }) {
     try {
       user = await UsersApi.login(user);
       login(user);
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       const errors = err.response?.data.errors;
       if (errors) {

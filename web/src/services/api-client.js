@@ -34,3 +34,15 @@ export const getUser = (id) => {
 export const create = (user) => {
   return http.post("/users", user);
 };
+
+export const createTravel = (travel) => {
+  return http.post("/travels", travel);
+};
+
+export const getTravels = () => {
+  return http.get("/travels");
+};
+
+export const updateTravel = (id, travel) => {
+  return http.patch(`/travels/${id}`, travel)
+}
