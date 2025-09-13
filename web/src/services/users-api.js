@@ -30,3 +30,7 @@ export const logout = () => {
 export const getUser = (id) => {
   return http.get(`/users/${id}`);
 };
+
+export const create = (user) => {
+  return http.post("/users", user);
+};

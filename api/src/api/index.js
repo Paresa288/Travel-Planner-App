@@ -23,23 +23,23 @@ router.post("/sessions", sessions.create);
 router.delete("/sessions", sessions.delete);
 
 // USERS CRUD
-router.post("/users", storage.single("avatar"), users.create); // CREATE
-router.get("/users", isAuthenticated, users.list); // READ
-router.get("/users/:id", isAuthenticated, users.detail); // READ
-router.patch("/users/:id", isAuthenticated, storage.single("avatar"), users.update); // UPDATE
-router.delete("/users/:id", isAuthenticated, users.delete); // DELETE
+router.post("/users", storage.single("avatar"), users.create);
+router.get("/users", isAuthenticated, users.list);
+router.get("/users/:id", isAuthenticated, users.detail);
+router.patch("/users/:id", isAuthenticated, storage.single("avatar"), users.update);
+router.delete("/users/:id", isAuthenticated, users.delete);
 
 // USER TRAVELS CRUD
-router.post("/travels", isAuthenticated, travels.create); // CREATE
-router.get("/travels", isAuthenticated, travels.list); // READ
-router.get("/travels/:id", isAuthenticated, travels.detail); // READ
-router.patch("/travels/:id", isAuthenticated, travels.update); // UPDATE
-router.delete("/travels/:id", isAuthenticated, travels.delete); // DELETE
+router.post("/travels", isAuthenticated, travels.create);
+router.get("/travels", isAuthenticated, travels.list);
+router.get("/travels/:id", isAuthenticated, travels.detail);
+router.patch("/travels/:id", isAuthenticated, travels.update);
+router.delete("/travels/:id", isAuthenticated, travels.delete);
 
 //FOLLOW
-router.post("/travels/:id/follows", isAuthenticated, follows.create); // CREATE
-router.get("/travels/:id/follows", isAuthenticated, follows.list); // READ
-router.delete("/travels/:id/follows/:followId", isAuthenticated, follows.delete); // DELETE
+router.post("/travels/:id/follows", isAuthenticated, follows.create); 
+router.get("/travels/:id/follows", isAuthenticated, follows.list);
+router.delete("/travels/:id/follows/:followId", isAuthenticated, follows.delete); 
 
 
 router.use(errors.routeNotFound);

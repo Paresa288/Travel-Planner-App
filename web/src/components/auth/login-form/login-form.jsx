@@ -34,9 +34,8 @@ function LoginForm({ className="" }) {
 
   return(
     <form onSubmit={handleSubmit(onSubmitLogin)} className={className}>
-
       {/* USERNAME */}
-      <div className="input-group mb-1">
+      <div className="input-group mb-1 shadow">
         <span className="input-group-text"><i className="fa fa-user fa-fw"></i></span>
         <input type="text" 
           className={`form-control ${errors.username ? "is-invalid" : ""}` }
@@ -49,7 +48,7 @@ function LoginForm({ className="" }) {
       </div>
 
       {/* PASSWORD */}
-      <div className="input-group mb-1">
+      <div className="input-group mb-1 shadow">
         <span className="input-group-text"><i className="fa fa-lock fa-fw"></i></span>
         <input type="text" 
           className={`form-control ${errors.password ? "is-invalid" : ""}`} 
@@ -61,10 +60,9 @@ function LoginForm({ className="" }) {
         )}
       </div>
 
-      <button className="btn btn-primary fw-light w-100 btn-sm" type="submit" disabled={!isValid}>LOGIN</button>
+      <button className="btn btn-dark fs-6 w-100 btn-sm shadow" type="submit" disabled={!isValid}>Login</button>
     
     </form>
-  
   )
 };
 

@@ -58,7 +58,9 @@ const schema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: `https://i.pravatar.cc/50`,
+      default: function () {
+        return `https://i.pravatar.cc/100?u=${this.username}`
+      },
     }
   },
   {

@@ -1,6 +1,8 @@
-function PageLayout({ children }) {
+function PageLayout({ children, className= "" }) {
   return (
-    <div className="container py-2">{children}</div>
+    <div className={`container py-2 ${className}`} style={{ height: "100vh"}}>
+      {children}
+    </div>
   )
 };
 

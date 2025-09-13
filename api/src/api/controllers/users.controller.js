@@ -34,7 +34,7 @@ module.exports.create = async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
       birthDate: req.body.birthDate,
-      avatar: req.file.path
+      avatar: req.file?.path
     });
     res.status(201).json(user);
   }

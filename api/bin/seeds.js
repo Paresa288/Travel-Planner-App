@@ -1,7 +1,7 @@
 const { faker } = require("@faker-js/faker");
-const User = require("../lib/models/user.model");
-const Travel = require("../lib/models/travel.model");
-const { clearDB, closeDBConnection } = require("../lib/db");
+const User = require("../src/lib/models/user.model");
+const Travel = require("../src/lib/models/travel.model");
+const { clearDB, closeDBConnection } = require("../src/lib/db");
 
 console.log("seed");
 

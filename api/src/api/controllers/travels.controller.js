@@ -13,7 +13,7 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.list = async (req, res, next) => {
   const travels = await Travel.find({ user: req.sessionUser.id })
-    .populate("user");
+    .populate("user", ["username", "avatar"]);
   console.log(travels)  
   res.json(travels)
 };
