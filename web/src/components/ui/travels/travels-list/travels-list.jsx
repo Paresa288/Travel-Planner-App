@@ -1,27 +1,14 @@
-import { useEffect, useState } from "react";
 import { TravelItem } from "../../../ui"
-import * as UsersApi from "../../../../services/api-client";
 
-
-function TravelsList() {
-  const [travels, setTravels] = useState([]);
-
-  useEffect(() => {
-    async function getTravels() {
-      const travels = await UsersApi.getTravels();
-      setTravels(travels);
-    }
-
-    getTravels();
-  },[]);
-
+function TravelsList({ travels }) {
   return(
-    <ul>
+    <ul className="list-group rounded">
       {travels.map((travel) => {
-        <TravelItem 
-          key={travel.id}
-          title={travel.title}
-        />
+        return (
+          <li className="list-group-item" key={travel.id}>
+            <TravelItem { ...travel }/>
+          </li>
+        )
       })}
     </ul>
   )

@@ -52,9 +52,10 @@ function RegisterForm() {
       <div className="input-group mb-1 shadow">
         <span className="input-group-text"><i className="fa fa-envelope fa-fw"></i></span>
         <input 
-          type="text" 
+          type="email" 
           className={`form-control ${errors.email ? "is-invalid" : ""}` } 
-          placeholder="example@example.com" {...register("email", { required: "Email is required" })}
+          placeholder="example@example.com" 
+          {...register("email", { required: "Email is required" })}
         />
         { errors.email && (
           <div className="invalid-feedback">{errors.email.message}</div>
@@ -66,7 +67,8 @@ function RegisterForm() {
         <span className="input-group-text"><i className="fa fa-calendar fa-fw"></i></span>
         <input 
           type="date" 
-          className={`form-control ${errors.birthDate ? "is-invalid" : ""}` } {...register("birthDate", { required: "Birth date is required" })}
+          className={`form-control ${errors.birthDate ? "is-invalid" : ""}` }
+          {...register("birthDate", { required: "Birth date is required" })}
         />
         { errors.birthDate && (
           <div className="invalid-feedback">{errors.birthDate.message}</div>
@@ -77,8 +79,9 @@ function RegisterForm() {
       <div className="input-group mb-1 shadow">
         <span className="input-group-text"><i className="fa fa-lock fa-fw"></i></span>
         <input 
-          type="text" 
-          className={`form-control ${errors.password ? "is-invalid" : ""}` } {...register("password", { required: "Password is required" })}
+          type="password" 
+          className={`form-control ${errors.password ? "is-invalid" : ""}` } 
+          {...register("password", { required: "Password is required" })}
           placeholder="*******"
         />
         { errors.password && (

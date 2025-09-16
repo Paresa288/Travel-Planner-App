@@ -8,3 +8,7 @@
   --bs-light: #b7c3d8;
   --bs-dark: #9ba326; 
 }
+
+body {
+  background-color: rgb(182, 191, 204) ;
+}

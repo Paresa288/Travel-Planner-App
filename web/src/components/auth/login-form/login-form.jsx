@@ -12,7 +12,7 @@ function LoginForm({ className="" }) {
     try {
       user = await UsersApi.login(user);
       login(user);
-      navigate("/home");
+      navigate("/travels");
     } catch (err) {
       const errors = err.response?.data.errors;
       if (errors) {
@@ -50,7 +50,7 @@ function LoginForm({ className="" }) {
       {/* PASSWORD */}
       <div className="input-group mb-1 shadow">
         <span className="input-group-text"><i className="fa fa-lock fa-fw"></i></span>
-        <input type="text" 
+        <input type="password" 
           className={`form-control ${errors.password ? "is-invalid" : ""}`} 
           placeholder="********"
           {...register( "password", { required: "Password is required" })}

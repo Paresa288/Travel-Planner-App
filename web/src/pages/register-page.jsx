@@ -15,7 +15,8 @@ function RegisterPage() {
         <div className="col p-4">
           <RegisterForm />
           <hr className="py-2"/>
-          <Link to="/" className="btn w-100 shadow">Back</Link>
+          <Link to="/login" className="btn w-100 shadow">Login</Link>
+          <Link to="/" className="btn btn-dark mt-2 w-100 shadow">Back to Home</Link>
         </div>
       </div>
       

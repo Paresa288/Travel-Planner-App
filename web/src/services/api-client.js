@@ -18,7 +18,7 @@ http.interceptors.response.use(
     } else return Promise.reject(err);
   }
 );
-
+//*SESSIONS*//
 export const login = (user) => {
   return http.post("/sessions", user);
 };
@@ -27,6 +27,7 @@ export const logout = () => {
   return http.delete("/sessions");
 };
 
+//*USERS*//
 export const getUser = (id) => {
   return http.get(`/users/${id}`);
 };
@@ -35,6 +36,7 @@ export const create = (user) => {
   return http.post("/users", user);
 };
 
+//*TRAVELS*//
 export const createTravel = (travel) => {
   return http.post("/travels", travel);
 };
@@ -43,6 +45,15 @@ export const getTravels = () => {
   return http.get("/travels");
 };
 
+export const getTravel = (id) => {
+  return http.get(`/travels/${id}`)
+};
+
 export const updateTravel = (id, travel) => {
   return http.patch(`/travels/${id}`, travel)
-}
+};
+
+//*FOLLOWS*//
+export const getFollowedTravels = (id) => {
+  return http.get(`/travels/${id}/follows`);
+};

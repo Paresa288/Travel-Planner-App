@@ -61,7 +61,7 @@ const schema = new mongoose.Schema(
       default: function () {
         return `https://i.pravatar.cc/100?u=${this.username}`
       },
-    }
+    },
   },
   {
     timestamps: true,
