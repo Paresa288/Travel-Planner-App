@@ -37,7 +37,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="main-navbar">
             <ul className="navbar-nav mb-2 ms-auto">
               <li className="nav-item d-flex align-items-center"><button className="nav-link" onClick={handleLogout}><i className="fa fa-sign-out"></i>Logout</button></li>
-              <li className="nav-item"><Link className="nav-link" to="/home"><img src={user.avatar} className="img-fluid rounded-circle" style={{ height: "4rem"}}></img></Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/travels"><img src={user.avatar} className="img-fluid rounded-circle" style={{ height: "4rem"}}></img></Link></li>
             </ul>
           </div>
         )}
