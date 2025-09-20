@@ -5,9 +5,15 @@ const Follow = require("../../lib/models/follow.model");
 const TravelNotFound = createError(404, "Travel not found");
 
 module.exports.create = async (req, res, next) => {
+  const schedule = [];
+
+  for (let i = 0; i < req.body.days; i++) {
+    schedule.push({ title: `Day ${i+1}`, content: ""})
+  }
   const travel = await Travel.create({
     ...req.body,
-    user: req.sessionUser.id
+    user: req.sessionUser.id,
+    schedule: schedule
   });
   res.status(201).json(travel);
 };
@@ -28,13 +34,13 @@ module.exports.list = async (req, res, next) => {
   
   travels = travels.map((travel) => {
     travel = travel.toJSON();
-    travel.following = false;
+    travel.follow = false;
     return travel;
   });
   
-  followingTravels = followingTravels.map((following) => {
-    const travel = following.travel.toJSON();
-    travel.following = true;
+  followingTravels = followingTravels.map((follow) => {
+    const travel = follow.travel.toJSON();
+    travel.follow = true;
     return travel;
   });
 
@@ -66,7 +72,11 @@ module.exports.update = async (req, res, next) => {
 
 module.exports.delete = async ( req, res, next) => {
   const criterial = { _id: req.params.id, user: req.sessionUser.id };
-  const travel = await Travel.findOneAndDelete(criterial);
+  let [ travel, follows ] = await Promise.all([
+    Travel.findOneAndDelete(criterial),
+    Follow.deleteMany({ travel: req.params.id })
+  ]) 
+  
   if (travel) res.json(204).send();
   else next(TravelNotFound);
 };

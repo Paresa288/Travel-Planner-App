@@ -30,7 +30,6 @@ const schema = new mongoose.Schema(
     },
     initialBudget: {
       type: Number,
-      required: "Please set an initial budget"
     },
     finalBudget: {
       type: Number,
@@ -53,7 +52,6 @@ const schema = new mongoose.Schema(
       required: "Please select how many days you want to travel for",
     },
     schedule: [{
-      date: Date,
       title: String,
       content: String
     }],
@@ -68,19 +66,6 @@ const schema = new mongoose.Schema(
     toJSON: {
       transform: (doc, ret) => {
         ret.id = ret._id;
-        ret.schedule = ret.schedule || [];
-        if (ret.schedule.length !== ret.days) {
-          for (let i = 0; i < ret.days; i++) {
-            const dayDate = dayjs(ret.createdAt).add(i, "day").startOf("day") //TODO: cambia la fecha de inicio
-            if (!ret.schedule.includes((day) => dayjs(day.date).isSame(dayDate, "day"))) {
-              ret.schedule.push({
-                title: "",
-                content: "",
-                date: dayDate
-              })
-            }
-          }
-        }
         delete ret._id;
         delete ret.__v;
         return ret;
