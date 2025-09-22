@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import * as UsersApi from "../../../services/api-client";
+import * as ApiClient from "../../../services/api-client";
 import { useAuth } from "../../../contexts/auth";
 import { useNavigate } from "react-router";
 
@@ -10,8 +10,8 @@ function RegisterForm() {
 
   const onSubmitRegister = async (user) => {
     try {
-      await UsersApi.create(user);
-      user = await UsersApi.login(user)
+      await ApiClient.create(user);
+      user = await ApiClient.login(user)
       login(user);
       navigate("/home")
     } catch (err) {

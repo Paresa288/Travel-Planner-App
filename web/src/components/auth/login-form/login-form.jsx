@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import * as UsersApi from "../../../services/api-client";
+import * as ApiClient from "../../../services/api-client";
 import { useAuth } from "../../../contexts/auth";
 import { useNavigate } from "react-router";
 
@@ -10,7 +10,7 @@ function LoginForm({ className="" }) {
 
   const onSubmitLogin = async (user) => {
     try {
-      user = await UsersApi.login(user);
+      user = await ApiClient.login(user);
       login(user);
       navigate("/travels");
     } catch (err) {
@@ -60,7 +60,7 @@ function LoginForm({ className="" }) {
         )}
       </div>
 
-      <button className="btn btn-dark fs-6 w-100 btn-sm shadow" type="submit" disabled={!isValid}>Login</button>
+      <button className="btn btn-light border border-secondary border-1 fs-6 w-100 btn-sm shadow" type="submit" disabled={!isValid}>Login</button>
     
     </form>
   )

@@ -1,12 +1,12 @@
 import { Link, NavLink } from "react-router";
 import { useAuth } from "../../../contexts/auth";
-import * as UsersApi from "../../../services/api-client";
+import * as ApiClient from "../../../services/api-client";
 
 function Navbar() {
   const { user, logout } = useAuth();
 
   const handleLogout = async () => {
-    await UsersApi.logout();
+    await ApiClient.logout();
     logout();
   };
 

@@ -18,18 +18,13 @@ function TravelDetailsPage() {
 
   return (
     <div className="row mx-2 gap-2">
-      <div className="col-2 bg-primary rounded min-vh-100" >
+      <div className="col bg-secondary rounded min-vh-100" >
       </div>
-      <div className="col bg-light rounded">
-        <div className="rounded d-flex flex-nowrap gap-3 overflow-x-scroll mt-2" style={{ minHeight: "700px"}}>
+      <div className="col-10 bg-light rounded">
+        <div className="rounded d-flex gap-3 overflow-x-scroll mt-2" style={{ minHeight: "700px"}}>
           {travel?.schedule.map((day, i) => {
             return (
-              <TaskCard key={day.title} day={i+1} />
-            )
-          })}
-          {travel?.schedule.map((day, i) => {
-            return (
-              <TaskCard key={day.title} day={i+1} />
+              <TaskCard key={day.title} day={i+1} schedule={day} index={i}/>
             )
           })}
         </div>

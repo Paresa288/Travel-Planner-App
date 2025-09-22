@@ -46,12 +46,16 @@ export const getTravels = () => {
 };
 
 export const getTravel = (id) => {
-  return http.get(`/travels/${id}`)
+  return http.get(`/travels/${id}`);
 };
 
 export const updateTravel = (id, travel) => {
-  return http.patch(`/travels/${id}`, travel)
+  return http.patch(`/travels/${id}`, travel);
 };
+
+export const updateTravelSchedule = (id, index, content) => {
+  return http.put(`/travels/${id}/schedules/${index}`, content);
+}
 
 //*FOLLOWS*//
 export const getFollowedTravels = (id) => {
